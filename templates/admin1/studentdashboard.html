@@ -1,0 +1,120 @@
+{% extends 'admin1/main1.html' %}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+<style>
+          
+    body {
+      overflow-x: hidden;
+    }
+    .o-hidden {
+      overflow: hidden !important;
+    }
+    .card-body-icon {
+      position: absolute;
+      z-index: 0;
+      top: -25px;
+      right: -15px;
+      font-size: 10rem;
+      height:600px;
+      width:180px;
+    }
+    
+    @media (min-width: 576px) {
+      .card-columns {
+        column-count: 1;
+      }
+    }
+    @media (min-width: 768px) {
+      .card-columns {
+        column-count: 2;
+      }
+    }
+    @media (min-width: 1200px) {
+      .card-columns {
+        column-count: 2;
+      }
+    }    
+    @media only screen and (max-width: 600px){
+      .card-body-icon {
+        font-size: 4rem;
+        right: -100px;
+        top: 25px;
+    }
+  }
+  </style>
+</head>
+         
+              <div class="col-xl-6 m-2 col-sm-6 mb-3" >
+                <div class="card text-white bg-primary o-hidden h-100">
+                  <div class="card-body" >
+                    <div class="card-body-icon">
+                      <i class="fas fa-user"></i>
+                    </div>
+                    <strong><center><div class="mr-5" style="font-size: 2rem;">My Profile</div></center></strong>
+                  </div>
+                  <a class="card-footer text-white clearfix small z-1" href="{% url 'profilestudent' %}">
+                    <span class="float-left" style="font-size:25px;">View Details</span>
+                    <span class="float-right">
+                      <i class="fa fa-angle-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <br>
+              <div class="col-xl-6 m-2 col-sm-6 mb-3" >
+                <div class="card text-white bg-warning o-hidden h-100">
+                  <div class="card-body">
+                    <div class="card-body-icon">
+                      <i class="fa fa-certificate"></i>
+                    </div>
+                    <strong><center><div class="mr-5" style="font-size: 2rem;">Cast your vote here</div></center></strong>
+                  </div>
+                  <a class="card-footer text-white clearfix small z-1" href="{% url 'vote' %}">
+                    <span class="float-left" style="font-size:25px;">Click here to vote</span>
+                    <span class="float-right">
+                      <i class="fa fa-angle-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <br>
+              <div class="col-xl-6 m-2 col-sm-6 mb-3" >
+                <div class="card text-white bg-success o-hidden h-100">
+                  <div class="card-body">
+                    <div class="card-body-icon">
+                      <i class="fa fa-key"></i>
+                    </div>
+                    <strong><center><div class="mr-5" style="font-size: 2rem;">Change Password</div></center></strong>
+                  </div>
+                  <a class="card-footer text-white clearfix small z-1" href="{% url 'studentchangepassword' %}">
+                    <span class="float-left" style="font-size:25px;">click to change</span>
+                    <span class="float-right">
+                      <i class="fa fa-angle-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <br>
+              <div class="col-xl-6 m-2 col-sm-6 mb-3" >
+                <div class="card text-white bg-danger o-hidden h-100">
+                  <div class="card-body">
+                    <div class="card-body-icon">
+                      <i class="fa fa-fw fa-id-badge"></i>
+                    </div>
+                    <strong><center><div class="mr-5" style="font-size: 2rem;">View Candidate</div></center></strong>
+                  </div>
+                  <a class="card-footer text-white clearfix small z-1" href="">
+                    <span class="float-left" style="font-size:25px;">View Result</span>
+                    <span class="float-right">
+                      <i class="fa fa-angle-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+        <br><br><br><br><br><br><br>
+
+
+
+{% endblock %}

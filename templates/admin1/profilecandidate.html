@@ -1,0 +1,94 @@
+{% extends 'admin1/main.html' %}
+{% load static %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin:20px;
+
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  </style>
+  </head>
+  <body>
+    {% if can %}
+    
+  <div class="row">
+    {% for i in can %}
+    <div class="column">
+      <div class="card">
+        <img src="{% static i.image.url %}" height='450'  alt="Image" style="width:100%;">
+        <div class="container">
+          <h2>{{i.student}}({{i.nickname}})</h2><br>
+          <b><i>Position</b></i>
+          <p class="title h2">{{i.position}}</p>
+          <br>
+        <b><u>Manifesto</b></u>
+          <p>{{i.manifesto}}</p>
+          <p><a href="{% url 'deletecandidate' i.id %}"><button class="button"> <i class="fa fa-trash"></i> Delete</button></p></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+    
+
+
+{% else %}
+  <center><h1>NO CANDIDATE</h1><br><br>
+    <center><a href="{% url 'newcandidate' %}" ><button class="btn">Click to add candidate</button></a></center>
+  {% endif %}
+</script>
+{% endblock content%}
